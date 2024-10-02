@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #111; /* Escuro e misterioso */
+  color: #ccc; /* Texto em um cinza claro */
+  font-family: 'Courier New', Courier, monospace; /* Fonte pixelada */
+  overflow: hidden; /* Remove barra de rolagem */
+}
+
+/* Efeito glitch no título */
+h1 {
+  font-size: 4rem;
+  margin-bottom: 100px;
+  position: relative;
+  color: #f0e68c; /* Cor amarela para lembrar as luzes fluorescentes das Backrooms */
+  animation: glitch 1.5s infinite;
+  text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+}
+
+/* Animação glitch */
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+  }
+  20% {
+    text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff;
+  }
+  40% {
+    text-shadow: 4px 4px 0px #ff00ff, -4px -4px 0px #00ffff;
+  }
+  60% {
+    text-shadow: -4px -4px 0px #ff00ff, 4px 4px 0px #00ffff;
+  }
+  80% {
+    text-shadow: 0px 0px 0px #ff00ff, 0px 0px 0px #00ffff;
+  }
+  100% {
+    text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+  }
+}
+
+/* Distribuição dos botões em formato irregular */
+.game-modes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 80vw; /* O menu ocupa 80% da largura da tela */
+  gap: 50px;
+  transform: rotate(-2deg); /* Leve distorção para parecer fora de eixo */
+}
+
+/* Botões do menu */
+.game-mode {
+  padding: 15px 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background-color: #282828; /* Cinza escuro, para o ambiente sombrio */
+  border: none;
+  color: #f0e68c; /* Amarelo claro, remetendo à iluminação fraca */
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(240, 230, 140, 0.8);
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+/* Efeito de desbloqueio e hover */
+.game-mode.active:hover {
+  background-color: #444; /* Escurece no hover */
+  transform: scale(1.05); /* Leve aumento no hover */
+}
+
+.game-mode.active {
+  background-color: #333;
+  animation: flicker 3s infinite alternate ease-in-out;
+}
+
+/* Botões bloqueados */
+.game-mode.locked {
+  background-color: #111;
+  cursor: not-allowed;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.6); /* Brilho vermelho fantasmagórico */
+  opacity: 0.6;
+  filter: grayscale(100%);
+}
+
+/* Efeito de flicker (piscar) nos botões desbloqueados */
+@keyframes flicker {
+  0% {
+    opacity: 1;
+    text-shadow: 0 0 5px #f0e68c, 0 0 10px #f0e68c;
+  }
+  50% {
+    opacity: 0.8;
+    text-shadow: 0 0 15px #f0e68c, 0 0 30px #f0e68c;
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 5px #f0e68c, 0 0 10px #f0e68c;
+  }
+}
+
+/* Animação de fundo piscando, para parecer desorientador */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(240, 230, 140, 0.1) 10px,
+    rgba(240, 230, 140, 0.1) 20px
+  );
+  opacity: 0.05;
+  animation: background-flicker 2.5s infinite;
+  pointer-events: none;
+}
+
+/* Animação leve de piscar no fundo */
+@keyframes background-flicker {
+  0%, 100% {
+    opacity: 0.05;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backrooms - Jogo</title>
+  <link rel="stylesheet" href="backroomsmodoclassico.css">
+</head>
+<body>
+  <div id="game">
+    <!-- Interface principal do jogo -->
+    <h1 id="game-title">BACKROOMS: SURVIVE THE UNKNOWN</h1>
+
+    <!-- Painel de controle -->
+    <div id="control-panel">
+      <button id="check-left" class="control-btn">Checar Esquerda</button>
+      <button id="check-right" class="control-btn">Checar Direita</button>
+      <button id="toggle-light" class="control-btn">Luz</button>
+    </div>
+
+    <!-- Áudio de fundo -->
+    <audio id="backgroundMusic" loop>
+      <source src="../../musics/UNIVERSFIELD - Horror Music Box.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Tela de jumpscare -->
+    <div id="jumpscare">
+      <img id="monster" src="../../" alt="Monstro" />
+    </div>
+
+    <!-- Indicador de tempo -->
+    <div id="time">
+      <h2>Hora: <span id="game-time">00:00</span></h2>
+    </div>
+
+    <!-- Fim de jogo -->
+    <div id="game-over" class="hidden">
+      <h1>VOCÊ FOI PEGO!</h1>
+      <button id="restart">Reiniciar</button>
+    </div>
+  </div>
+
+  <script src="backroomsmodoclassico.js"></script>
+</body>
+</html>
